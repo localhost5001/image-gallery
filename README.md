@@ -1,4 +1,4 @@
-# Mastermind Full Stack Developer Interview Exercise
+# Disco Full Stack Developer Interview Exercise
 
 First off, thank you for taking the time to do this exercise. We find that doing a contained development exercise like this one is much more effective than an in-person technical interview. No matter what our hiring decision is, we will make sure that you receive a complete code review for the work you deliver.
 
@@ -6,7 +6,7 @@ Be sure to carefully review this README before cloning the repository and gettin
 
 ### What is the goal of this exercise?
 
-The topics covered by this project are the basics of full stack web development. Completing this exercise will prepare you for working at Mastermind. Having a decent knowledge on these topics will allow you to easily join the team and learn new skills faster.
+The topics covered by this project are the basics of full stack web development. Completing this exercise will prepare you for working at Disco. Having a decent knowledge on these topics will allow you to easily join the team and learn new skills faster.
 
 ### Basic topics / skills covered by this exercise
 
@@ -20,7 +20,7 @@ The topics covered by this project are the basics of full stack web development.
 
 ## What are you going to build?
 
-We would like you to build a photo search website. Don't worry, it's quite simple. Here is a mockup of what we would like to see, [available on Figma](https://www.figma.com/file/wOUpro9PbQVJCd2capMz4j/Mastermind-Web-Exercise).
+We would like you to build a photo search website. Don't worry, it's quite simple. Here is a mockup of what we would like to see, [available on Figma](https://www.figma.com/file/wOUpro9PbQVJCd2capMz4j/Disco-Web-Exercise).
 
 - This boilerplate repository should serve as your starting point for this exercise. Included here is a PostgreSQL database that includes ~100 photos to be displayed on this website.
 - In this web application, photos are categorized into "Collections". Users will search photos by selecting a specific Collection and searching within that collection via keywords. For example, someone might want to find mountain photos around Vancouver. They can type in "Vancouver" and select the "Mountains" collection from the dropdown.
@@ -30,19 +30,19 @@ We would like you to build a photo search website. Don't worry, it's quite simpl
 
 ### Design
 
-Transforming complex designs to HTML & CSS in a seamless and accessible way is a critical skill for being a part of the team at Mastermind. Your final implementation will be reviewed against the provided design comp. You need to create a [Figma](https://www.figma.com/) account. Once you do, you can extract assets and review designs from [the web exercise Figma board](https://www.figma.com/file/wOUpro9PbQVJCd2capMz4j/Mastermind-Web-Exercise).
+Transforming complex designs to HTML & CSS in a seamless and accessible way is a critical skill for being a part of the team at Disco. Your final implementation will be reviewed against the provided design comp. You need to create a [Figma](https://www.figma.com/) account. Once you do, you can extract assets and review designs from [the web exercise Figma board](https://www.figma.com/file/wOUpro9PbQVJCd2capMz4j/Disco-Web-Exercise).
 
 ### Timing
 
-You should complete this exercise within 72 hours of receiving it. Applicants who do not complete this exercise will not be accepted to the position.
+You should ideally complete this exercise within 72 hours of receiving it. If you are not able to complete this exercise within 72 hours of receiving this, please let us know and we'd be more than happy to extend the deadline.
 
 ### Deliverable
 
-You should publish your work to your own git repository that our team can review. You should invite maziar@mastermind.co and cameron@mastermind.co to have access this repository. We should be able to clone your repository and run the application using the same setup instructions provided below.
+You should publish your work to your own git repository that our team can review. You should invite [maziar-mastermind](https://github.com/maziar-mastermind) and [cam-perry](https://github.com/cam-perry) to have access this repository. We should be able to clone your repository and run the application using the same setup instructions provided below.
 
 ### Questions?
 
-If you are stuck at some point, or if you have questions about the scope, we are always here to help you. Please don't hesitate to email Maziar: maziar@mastermind.co.
+If you are stuck at some point, or if you have questions about the scope, we are always here to help you. Please don't hesitate to email Maziar: maziar@disco.co.
 
 ### Bonus points
 
