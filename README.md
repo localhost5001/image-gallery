@@ -26,7 +26,7 @@ We would like you to build a photo search website. Don't worry, it's quite simpl
 - In this web application, photos are categorized into "Collections". Users will search photos by selecting a specific Collection and searching within that collection via keywords. For example, someone might want to find mountain photos around Vancouver. They can type in "Vancouver" and select the "Mountains" collection from the dropdown.
 - You will need to build the backend API which exposes the photos in the postgres database to your frontend. You will find 3 tables in the database: photo, collection, and photographer. Each photo belongs to a single collection and photographer. You can review the “schema.sql” file to see the exact structure of these 3 tables.
 - After a successful search, the user should be displayed a page with a masonry grid of search results. Refer to designs to see how this page should look like.
-- When a user clicks on any photo in the results page, it should open a modal which will display the full photo, details about its photographer, and a download button.
+- When a user clicks on any photo in the results page, it should open a modal which will display the full photo and details about its photographer.
 
 ### Design
 
