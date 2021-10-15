@@ -48,7 +48,6 @@ If you are stuck at some point, or if you have questions about the scope, we are
 
 Additional features and improvements on the basic requirements are welcome. A few ideas:
 
-- You can cache the results of a particular search. Then, if a search with the same keyword is used again, the app could get the cached results without making another request to the API.
 - There’s no design for a “no result” case for the search list. You may display something that you think fits the design language.
 - Make the website responsive and suitable for mobile devices: Building responsive sites is a time-consuming task, so this is only a bonus feature, but it will go a long way towards proving your CSS skills if you are able to deliver a responsive implementation.
 - Update the README file to explain the changes you made and the reasoning for them.
