@@ -25,7 +25,7 @@ services:
     ports: ["8080:8080"]
 
   web:
-    image: "node:14.15.4"
+    image: "node:18.3.0"
     depends_on: ["api"]
     working_dir: /app/web
     command: bash -c "yarn && yarn run start"
