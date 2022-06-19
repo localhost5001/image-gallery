@@ -1,6 +1,7 @@
 import { Photo } from 'models/photo'
+import { PhotoPreview } from 'models/photoPreview'
 
-export const getPhotos = (collectionId: string, keyword: string): Promise<Photo[]> => {
+export const getPhotos = (collectionId: string, keyword: string): Promise<PhotoPreview[]> => {
     return Promise.resolve([])
 }
 
