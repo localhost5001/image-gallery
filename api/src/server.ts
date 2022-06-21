@@ -1,10 +1,10 @@
 import express from 'express'
-import { getPostgresClient } from "./postgres";
-import express from "express";
+import cors from 'cors'
 import { collectionsRouter, photographersRouter, photosRouter } from './routes'
 
 const app = express();
 
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.send("Hello world!")
