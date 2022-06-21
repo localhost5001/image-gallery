@@ -25,9 +25,8 @@ function PhotoGallery() {
                 chunks.map((chunk, index) => (
                     <div key={index} 
                         className='
-                            md:basis-1/5 md:px-0
-                            sm:basis-full sm:px-10
-                            space-y-5
+                            md:basis-1/5 md:mx-0 md:space-y-5
+                            sm:basis-full space-y-10 mx-5
                         '>
                         {
                             chunk.map(photo => (
