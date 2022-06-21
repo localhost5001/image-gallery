@@ -9,8 +9,8 @@ export default function NavBar() {
     <nav className="bg-gray-800 py-6">
         <div 
             className='
-                md:max-w-6xl md:space-x-10 md:mx-auto md:flex
-                block justify-center
+                md:flex md:mx-auto md:max-w-6xl 
+                block
             '
         >
             <div className='flex justify-center'>
