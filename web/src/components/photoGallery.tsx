@@ -3,12 +3,14 @@ import { Suspense, useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 import { photosState } from 'state'
 
+const ROW_COUNT = 3
+
 function PhotoGallery() {
     const photos = useRecoilValue(photosState)
 
     const chunks = useMemo(() => {
         const chunks: Photo[][] = []
-        const len = photos.length / 4
+        const len = photos.length / ROW_COUNT
         let i = 0
 
         while(i < photos.length) {
