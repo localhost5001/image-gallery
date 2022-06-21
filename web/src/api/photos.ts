@@ -1,18 +1,14 @@
-import { Photo } from 'models/photo'
-import { PhotoPreview } from 'models/photoPreview'
+import type { Photo } from 'models/photo'
+import type { PhotoQuery } from 'models/photoQuery'
 
-export const getPhotos = (collectionId: string, keyword: string): Promise<PhotoPreview[]> => {
-    return Promise.resolve([])
+const API_URL = process.env.REACT_APP_API_URL
+
+export const getPhotos = async (query: PhotoQuery): Promise<Photo[]> => {
+    const res = await fetch(`${API_URL}/photos?collectionId=${query.collectionId}&keyword=${query.keyword}`)
+    return await res.json()
 }
 
-export const getPhotoById = (id: number): Promise<Photo> => {
-    return Promise.resolve({
-        id: id,
-        collection_id: 1,
-        photographer_id: 1,
-        url: 'url',
-        description: 'photo description',
-        height: 100,
-        width: 100
-    })
+export const getPhotoById = async (id: number): Promise<Photo> => {
+    const res = await fetch(`${API_URL}/photos/${id}`)
+    return await res.json()
 }
