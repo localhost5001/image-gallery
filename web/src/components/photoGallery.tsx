@@ -2,24 +2,14 @@ import { Photo } from 'models/photo'
 import { Suspense, useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 import { photosState } from 'state'
+import { splitChunks } from 'helpers/splitChunks'
 
-const ROW_COUNT = 3
+const COL_COUNT = 3
 
 function PhotoGallery() {
     const photos = useRecoilValue(photosState)
 
-    const chunks = useMemo(() => {
-        const chunks: Photo[][] = []
-        const len = photos.length / ROW_COUNT
-        let i = 0
-
-        while(i < photos.length) {
-            const chunk = photos.slice(i, i += len)
-            chunks.push(chunk)
-        }
-
-        return chunks
-    }, [photos])
+    const chunks = useMemo(() => splitChunks(photos, COL_COUNT), [photos])
 
     return (
         <div 
