@@ -1,24 +1,19 @@
+import express from 'express'
 import { getPostgresClient } from "./postgres";
 import express from "express";
+import { collectionsRouter, photographersRouter, photosRouter } from './routes'
 
-/** Connect to the database then start the API server */
-getPostgresClient()
-  .then((pgClient) => {
-    const app = express();
+const app = express();
 
-    app.get("/", (req, res) => {
-      res.send("Hello world!");
-    });
 
-    app.get("/now", async (req, res) => {
-      const data = await pgClient.query("SELECT NOW() as now");
-      res.send(data.rows[0].now);
-    });
+app.get("/", (req, res) => {
+  res.send("Hello world!")
+})
 
-    app.listen(8080, () => {
-      console.log("API server ready at http://localhost:8080");
-    });
-  })
-  .catch((err) => {
-    console.error("Error connecting to postgres: ", err);
-  });
+app.use('/photos', photosRouter)
+app.use('/photographers', photographersRouter)
+app.use('/collections', collectionsRouter)
+
+app.listen(8080, () => {
+  console.log("API server ready at http://localhost:8080")
+})
