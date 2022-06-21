@@ -13,9 +13,6 @@ export default function NavBar() {
     const handleKeywordChange = (newVal: string) => {
         setKeyword(newVal)
     }
-    const handleCollectionIdChange = (newVal: number | null) => {
-        setCollectionId(newVal)
-    }
     const handleSearchClick = () => {
         const query: PhotoQuery = { keyword: keyword, collectionId: collectionId }
     }
@@ -36,20 +33,11 @@ export default function NavBar() {
 
             <div className='hidden md:flex flex-grow space-x-4'>
                 <div className="basis-2/5">
-                    <TextBox 
-                        onChange={handleKeywordChange}
-                        placeholder="Query" 
-                    />
+                    <TextBox />
                 </div>
 
                 <div className="basis-2/5">
-                    <SelectBox 
-                        items={items}
-                        key='id'
-                        value='text' 
-                        palceholder='Collections'
-                        onChange={handleCollectionIdChange}
-                    />
+                    <SelectBox   />
                 </div>
 
                 <div className="basis-1/5">
@@ -62,20 +50,11 @@ export default function NavBar() {
 
         <div className='md:hidden block mx-2 space-y-5 mt-4'>
             <div className="">
-                <TextBox 
-                    onChange={handleKeywordChange}
-                    placeholder="Query" 
-                />
+                <TextBox />
             </div>
 
             <div className="">
-                <SelectBox 
-                    items={items}
-                    key='id'
-                    value='text' 
-                    palceholder='Collections'
-                    onChange={handleCollectionIdChange}
-                />
+                <SelectBox />
             </div>
 
             <div className="">

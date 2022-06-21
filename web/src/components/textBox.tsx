@@ -1,16 +1,19 @@
+import { useRecoilState } from 'recoil'
 
-interface TextBoxProps {
-    onChange: (val: string) => void
-    placeholder?: string
-}
+import { keywordState } from 'state'
 
-export default function TextBox(props: TextBoxProps) {
+const PLACEHOLDER = 'Query'
+
+export default function TextBox() {
+    const [keyword, setKeyword] = useRecoilState(keywordState)
+
     return (
         <div className="">
             <input 
-                onChange={(e) => props.onChange(e.target.value)}
+                defaultValue={ keyword }
+                onChange={(e) => setKeyword(e.target.value)}
                 className="rounded py-2 px-2 w-full min-w-20 font-medium placeholder:text-gray-300" 
-                placeholder={props.placeholder}
+                placeholder={PLACEHOLDER}
             />
         </div>
     )

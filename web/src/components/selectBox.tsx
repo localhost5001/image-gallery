@@ -1,42 +1,50 @@
 import { useMemo, useState } from 'react'
 
-export interface Item {
-    id: number
-    text: string
-}
+import { useRecoilValueLoadable, useRecoilState } from 'recoil'
 
-interface SelectBoxProps {
-    items: Item[]
-    value: string | null
-    palceholder?: string
-    onChange: (id: number | null) => void
-}
+import { Collection } from 'models/collection'
+import { collectionsState, selectedCollectionState } from 'state'
 
-export default function SelectBox(props: SelectBoxProps) {
+const PLACEHOLDER = 'Collection'
+
+export default function SelectBox() {
+    const collectionsLoadable = useRecoilValueLoadable(collectionsState)
+    const [selectedCollection, setSelectedCollection] = useRecoilState(selectedCollectionState)
     const [isOpen, setIsOpen] = useState(false)
-    const [itemSelected, setItemSelected] = useState(false)
-    const [labelText, setLabelText] = useState(props.palceholder)
 
     const toggleIsOpen = () => {
         setIsOpen(!isOpen)
     }
 
-    const onChange = (item?: Item) => {
-        if (!item) {
-            setLabelText(props.palceholder)
-            setItemSelected(false)
-        } else {
-            setLabelText(item.text)
-            setItemSelected(true)
-        }
-
-        props.onChange(item?.id ?? null)
+    const onChange = (item: Collection | null) => {
+        setSelectedCollection(item)
     }
 
     const labelStyles = useMemo(
-        () => (`absolute left-0 p-2 font-medium ${itemSelected ? '' : 'text-gray-300'}`),
-        [itemSelected]
+        () => (`absolute left-0 p-2 font-medium ${selectedCollection !== null ? '' : 'text-gray-300'}`),
+        [selectedCollection]
     )
+
+    const renderElements = (elements: Collection[]) => elements.map((item: any) => (
+        <li 
+            key={item.id} 
+            className='py-2 px-2 hover:bg-gray-200 border-b cursor-pointer font-medium'
+            onClick={(e) => onChange(item)}
+        >
+                { item.title }
+        </li>
+    ))
+
+    const renderElementsLoadable = () => {
+        switch (collectionsLoadable.state) {
+            case 'hasValue':
+              return <div>{renderElements(collectionsLoadable.getValue())}</div>
+            case 'loading':
+              return <div className="text-gray-400 text-center font-medium">Loading...</div>
+            case 'hasError':
+                <div className="text-red-400 text-center font-medium">Error occured</div> 
+        }
+    }
 
     return (
         <div className='rounded bg-white w-fullcursor-pointer drop-shadow' onClick={toggleIsOpen}>
@@ -45,7 +53,7 @@ export default function SelectBox(props: SelectBoxProps) {
             </select>
 
             <label className={labelStyles}>
-                {labelText}
+                {selectedCollection?.title ?? PLACEHOLDER }
             </label>
 
             <div className='absolute z-10 right-3 inset-y-1/2 w-3 h-3'>
@@ -55,15 +63,9 @@ export default function SelectBox(props: SelectBoxProps) {
             </div>
             
             <ul className='absolute bg-white top-9 w-full rounded-b' hidden={!isOpen}>
-                {props.items.map((item) => (
-                    <li 
-                        key={item.id} 
-                        className='py-2 px-2 hover:bg-gray-200 border-b cursor-pointer font-medium'
-                        onClick={(e) => onChange(item)}
-                    >
-                            {item.text}
-                    </li>
-                ))}
+                {
+                    renderElementsLoadable()
+                }
             </ul>
         </div>
     )
