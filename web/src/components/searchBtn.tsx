@@ -1,21 +1,16 @@
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { keywordState, selectedCollectionState } from 'state'
-import { photosApi } from 'api'
+import { keywordState, selectedCollectionState, photoQueryState } from 'state'
 
 export default function SearchBtn() {
     const keyword = useRecoilValue(keywordState)
     const selectedCollection = useRecoilValue(selectedCollectionState)
+    const setPhotoQuery = useSetRecoilState(photoQueryState)
     
     const handleSearchClick = async () => {
-        if (!selectedCollection?.id || !keyword) {
-            return
-        }
-
-        const photos = await photosApi.getPhotos(
-            { keyword: keyword, collectionId: selectedCollection.id }
+        setPhotoQuery(
+            { keyword: keyword, collectionId: selectedCollection?.id ?? null }
         )
-        console.log(photos)
     }
 
     return (
