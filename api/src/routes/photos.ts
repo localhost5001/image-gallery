@@ -20,20 +20,20 @@ router.get('/:id', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const { collectionId, keyword } = req.query
+    try {
+        const { collectionId, keyword } = req.query
 
-    const collectionIdInt = parseInt(collectionId as string)
+        const collectionIdInt = collectionId ? parseInt(collectionId as string) : undefined
 
-    if (!collectionId || !keyword) {
-        return res.status(400).send('Invalid query parameters')
+        const photos = await photosRepository.getPhotos({
+            collectionId: collectionIdInt,
+            keyword: keyword as string
+        })
+
+        res.json(photos)
+    } catch (err) {
+        res.sendStatus(500)
     }
-
-    const photos = await photosRepository.getPhotos({
-        collectionId: collectionIdInt,
-        keyword: keyword as string
-    })
-
-    res.json(photos)
 })
 
 export { router }
