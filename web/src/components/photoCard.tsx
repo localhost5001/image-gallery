@@ -11,6 +11,31 @@ export default function PhotoCard() {
         throw new Error('Error occured while loading photo data')
     }
 
+    const renderSocialLink = () => {
+        if (photographer.instagram_username) {
+            return (
+                <a 
+                    className='font-bold text-lg text-indigo-800'
+                    href={`https://www.instagram.com/${photographer.instagram_username}`}
+                >
+                    @{photographer.instagram_username}
+                </a>
+            )
+        }
+        if (photographer.twitter_username) {
+            return (
+                <a 
+                    className='font-bold text-lg text-indigo-800'
+                    href={`https://twitter.com/${photographer.twitter_username}`}
+                >
+                    @{photographer.instagram_username}
+                </a>
+            )
+        }
+
+        return null
+    }
+
     const renderPhotoGrapherProfileImg = () => {
         if (photographer.profile_image_url)
         {
@@ -79,12 +104,7 @@ export default function PhotoCard() {
                         {renderPhotoGrapherProfileImg()}
                         <div className='flex flex-col ml-2'>
                             <div className='font-bold text-2xl'>{photographer.name}</div>
-                            <a 
-                                className='font-bold text-lg text-indigo-800'
-                                href={`https://www.instagram.com/${photographer.instagram_username}`}
-                            >
-                                @{photographer.instagram_username}
-                            </a>
+                            {renderSocialLink()}
                         </div>
                     </div>
                     
