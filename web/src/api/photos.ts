@@ -8,7 +8,7 @@ export const getPhotos = async (query: PhotoQuery): Promise<Photo[]> => {
     return await res.json()
 }
 
-export const getPhotoById = async (id: number): Promise<Photo> => {
+export const getPhotoById = async (id: number): Promise<Photo | null> => {
     const res = await fetch(`${API_URL}/photos/${id}`)
     return await res.json()
 }
