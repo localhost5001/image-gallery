@@ -1,5 +1,7 @@
 # Disco Full Stack Developer Interview Exercise
 
+### Changes against the original repo described in [CHANGELOG](./CHANGELOG.md) file
+
 First off, thank you for taking the time to do this exercise. We find that doing a contained development exercise like this one is much more effective than an in-person technical interview. No matter what our hiring decision is, we will make sure that you receive a complete code review for the work you deliver.
 
 Be sure to carefully review this README before cloning the repository and getting started. It contains important setup instructions and lays out our expectations for how the final web app you build should work.
