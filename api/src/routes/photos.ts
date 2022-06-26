@@ -32,6 +32,7 @@ router.get('/', async (req, res) => {
 
         res.json(photos)
     } catch (err) {
+        console.error(err)
         res.sendStatus(500)
     }
 })
