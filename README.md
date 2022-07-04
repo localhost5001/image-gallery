@@ -1,3 +1,5 @@
+![image](./img/gallery.png)
+
 # Setup
 
 **Requires docker**
