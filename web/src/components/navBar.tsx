@@ -1,5 +1,3 @@
-import logo from '../logo.svg'
-
 import SelectBox from 'components/selectBox'
 import TextBox from 'components/textBox'
 import SearchBtn from 'components/searchBtn'
@@ -13,10 +11,6 @@ export default function NavBar() {
                 block
             '
         >
-            <div className='flex justify-center'>
-                <img src={logo} className="mx-5 h-10"></img>
-            </div>
-
             <div 
                 className='
                     md:flex md:flex-grow md:space-x-4 md:sm:space-y-0 md:mt-0
